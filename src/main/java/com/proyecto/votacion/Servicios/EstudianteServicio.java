@@ -5,11 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-// import com.proyecto.votacion.DTO.EstudianteDTO;
 import com.proyecto.votacion.Objetos.EstudianteObjeto;
 import com.proyecto.votacion.Repositorios.EstudianteRepositorio;
 
-// import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional;
 
 @Service
 public class EstudianteServicio {
@@ -42,13 +41,9 @@ public class EstudianteServicio {
         estudianteRepositorio.deleteById(id);
     }
 
-  /*   @Transactional
-    public void modificarEstatus_voto(EstudianteDTO estudianteDTO) {
-        if (estudianteRepositorio.existsById(estudianteDTO.getCta())) {
-            estudianteRepositorio.actualizarEstatus(estudianteDTO.getCta());
-        } else {
-            // estudianteDTO;
-        }
+    @Transactional
+    public void modificarEstatus_voto(String cta) {
+        estudianteRepositorio.actualizarEstatus(cta);
     }
- */
+
 }

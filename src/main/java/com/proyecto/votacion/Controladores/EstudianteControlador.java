@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.proyecto.votacion.Objetos.EstudianteObjeto;
-// import com.proyecto.votacion.DTO.EstudianteDTO;
 import com.proyecto.votacion.Servicios.EstudianteServicio;
 
 @RestController
@@ -44,9 +43,9 @@ public class EstudianteControlador {
         estudianteServicio.eliminarEstudiante(id);
     }
 
-   // @PutMapping("/votar")
-    /* public void estatusVoto(@RequestParam EstudianteDTO estudianteDTO) {
-        estudianteServicio.modificarEstatus_voto(estudianteDTO);
-    } */
+    @PutMapping("/estatus_voto")
+    public void estatusVoto(@RequestParam  String cta) {
+        estudianteServicio.modificarEstatus_voto(cta);
+    }
 
 }
