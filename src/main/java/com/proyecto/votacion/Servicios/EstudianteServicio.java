@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.votacion.Objetos.EstudianteObjeto;
 import com.proyecto.votacion.Repositorios.EstudianteRepositorio;
+import com.proyecto.votacion.Repositorios.PlanillaRepositorio;
 
 import jakarta.transaction.Transactional;
 
@@ -14,6 +15,8 @@ import jakarta.transaction.Transactional;
 public class EstudianteServicio {
     @Autowired
     EstudianteRepositorio estudianteRepositorio;
+    PlanillaRepositorio planillaRepositorio;
+    PlanillaServicio planillaServicio;
 
     EstudianteObjeto estudianteObjeto = new EstudianteObjeto();
 
@@ -43,7 +46,9 @@ public class EstudianteServicio {
 
     @Transactional
     public void modificarEstatus_voto(String cta) {
+
         estudianteRepositorio.actualizarEstatus(cta);
     }
+
 
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.proyecto.votacion.Objetos.EstudianteObjeto;
 import com.proyecto.votacion.Servicios.EstudianteServicio;
 
@@ -44,7 +43,7 @@ public class EstudianteControlador {
     }
 
     @PutMapping("/estatus_voto")
-    public void estatusVoto(@RequestParam  String cta) {
+    public void estatusVoto(@RequestParam String cta) {
         estudianteServicio.modificarEstatus_voto(cta);
     }
 
