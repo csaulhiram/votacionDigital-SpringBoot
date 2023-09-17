@@ -37,13 +37,12 @@ public class PlanillaServicio {
     @Transactional
     public void votar(String id_planilla) {
 
+        // validar si usuario votó
+
         Optional<PlanillaObjeto> planilla;
         planilla = planillaRepositorio.findById(id_planilla);
         Integer votos = (Integer) planilla.get().getVotos();
-
         votos++;
-        //System.out.println("informacion servicio: " + (votos + 1));
-
         planillaRepositorio.votar(votos, id_planilla);
      }
 }

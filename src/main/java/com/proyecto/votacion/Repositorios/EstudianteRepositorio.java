@@ -14,7 +14,5 @@ public interface EstudianteRepositorio extends JpaRepository<EstudianteObjeto, S
     @Query(value = "UPDATE estudiante e set e.estatus_voto = 1 where e.cta = ?", nativeQuery = true)
     void actualizarEstatus(String cta);
 
-   /*  @Modifying
-    @Query(value = "UPDATE estudiante e set e.estatus_voto = 1 where e.cta = ?", nativeQuery = true)
-    void actualizarEstatus(String cta); */
+
 }

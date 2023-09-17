@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import com.proyecto.votacion.Objetos.InfoUsuarioObjeto;
 import com.proyecto.votacion.Servicios.InfoUsuarioServicio;
@@ -22,8 +23,10 @@ public class InfoUsuarioControlador {
     @Autowired
     InfoUsuarioServicio infoUsuarioServicio;
 
-    @PostMapping("/registrarUsuario")
-    public InfoUsuarioObjeto registrarUsuario(@RequestBody InfoUsuarioObjeto data) {
+
+    @PostMapping(path = "/registrarUsuario", consumes =  MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public InfoUsuarioObjeto registrarUsuario(InfoUsuarioObjeto data) {
+
         return infoUsuarioServicio.registrarUsuario(data);
     }
 
@@ -36,7 +39,6 @@ public class InfoUsuarioControlador {
     public List<InfoUsuarioObjeto> obtenerUsuarios() {
         return infoUsuarioServicio.obtenerUsuarios();
     }
-    
 
     @DeleteMapping("/eliminarUsuario")
     public void eliminarUsuario(@RequestParam String id) {

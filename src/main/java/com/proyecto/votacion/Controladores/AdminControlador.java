@@ -3,10 +3,12 @@ package com.proyecto.votacion.Controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +22,8 @@ public class AdminControlador {
     @Autowired
     AdminServicio adminServicio;
 
-    @PostMapping("/registrarAdmin")
-    public AdminObjeto registrarAdmin (@RequestBody AdminObjeto adminObjeto) {
+    @PostMapping(path = "/registrarAdmin", consumes =  MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public AdminObjeto registrarAdmin (AdminObjeto adminObjeto) {
         return adminServicio.registrarAdmin(adminObjeto);
     } 
 

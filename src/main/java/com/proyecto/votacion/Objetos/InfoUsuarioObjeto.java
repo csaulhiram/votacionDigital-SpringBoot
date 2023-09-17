@@ -32,6 +32,9 @@ public class InfoUsuarioObjeto {
     @Column(name = "password", unique = true, nullable = false)
     private String password;
 
+    @Column(name = "perfil", unique = true, nullable = false)
+    private String perfil;
+
     @OneToMany(mappedBy = "usuarioObjeto")
     @JsonIgnore
     private Set<AdminObjeto> adminObjeto;
