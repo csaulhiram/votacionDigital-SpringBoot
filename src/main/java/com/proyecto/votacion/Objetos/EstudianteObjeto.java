@@ -2,6 +2,7 @@ package com.proyecto.votacion.Objetos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,7 +30,8 @@ public class EstudianteObjeto {
     @Column(name = "estatus_voto", nullable = false, unique = false)
     private String estatus_voto;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    
+    @ManyToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)//  ---> me sirve para eliminar en la tabla foránea y en la tabla principal
     @JoinColumn(name = "informacion_personal_id_usuario", referencedColumnName = "id_usuario", nullable = true)
     private InfoUsuarioObjeto usuarioObjeto_estudiante;
 
