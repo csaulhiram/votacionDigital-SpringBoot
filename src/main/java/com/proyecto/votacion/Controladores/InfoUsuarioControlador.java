@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,15 +23,15 @@ public class InfoUsuarioControlador {
     @Autowired
     InfoUsuarioServicio infoUsuarioServicio;
 
-
-    @PostMapping(path = "/registrarUsuario", consumes =  MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(path = "/registrarUsuario", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public InfoUsuarioObjeto registrarUsuario(InfoUsuarioObjeto data) {
 
         return infoUsuarioServicio.registrarUsuario(data);
     }
 
-    @PutMapping("/modificarUsuario")
-    public InfoUsuarioObjeto modificarUsuario(@RequestBody InfoUsuarioObjeto data) {
+    @PutMapping(path = "/modificarUsuario", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @CrossOrigin()
+    public InfoUsuarioObjeto modificarUsuario(InfoUsuarioObjeto data) {
         return infoUsuarioServicio.modificarUsuario(data);
     }
 
@@ -41,8 +41,9 @@ public class InfoUsuarioControlador {
     }
 
     @DeleteMapping("/eliminarUsuario")
+    @CrossOrigin
     public void eliminarUsuario(@RequestParam String id) {
-        infoUsuarioServicio.deleteUser(id);
+        infoUsuarioServicio.eliminarUsuario(id);
     }
 
     @GetMapping("/obtenerUsuario")

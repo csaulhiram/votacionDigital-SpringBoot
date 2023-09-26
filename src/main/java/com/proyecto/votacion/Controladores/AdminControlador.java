@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.votacion.Objetos.AdminObjeto;
 import com.proyecto.votacion.Servicios.AdminServicio;
+import com.proyecto.votacion.Servicios.InfoUsuarioServicio;
 
 @RestController
 @RequestMapping("/admin")
@@ -21,6 +22,7 @@ public class AdminControlador {
     
     @Autowired
     AdminServicio adminServicio;
+    InfoUsuarioServicio infoUsuarioServicio;
 
     @PostMapping(path = "/registrarAdmin", consumes =  MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public AdminObjeto registrarAdmin (AdminObjeto adminObjeto) {
@@ -35,5 +37,6 @@ public class AdminControlador {
     @DeleteMapping("/eliminarAdmin")
     public void eliminarAdmin(String id) {
         adminServicio.eliminarAdmin(id);
+      //  infoUsuarioServicio.eliminarUsuario(id);
     }
 }

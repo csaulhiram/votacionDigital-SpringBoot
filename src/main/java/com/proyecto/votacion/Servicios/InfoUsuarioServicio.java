@@ -36,7 +36,7 @@ public class InfoUsuarioServicio {
         return infoUsuarioRepositorio.findAll();
     }
 
-    public void deleteUser(String id) {
+    public void eliminarUsuario(String id) {
         infoUsuarioRepositorio.deleteById(id);
     }
 

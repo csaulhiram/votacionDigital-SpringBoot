@@ -43,4 +43,5 @@ public class InfoUsuarioObjeto {
     @JsonIgnore
     private Set<EstudianteObjeto> estudianteObjeto;
 
+
 }
