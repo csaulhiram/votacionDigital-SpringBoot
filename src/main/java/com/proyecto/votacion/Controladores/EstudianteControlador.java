@@ -1,5 +1,6 @@
 package com.proyecto.votacion.Controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,9 @@ public class EstudianteControlador {
         estudianteServicio.modificarEstatus_voto(cta);
     }
 
+    // Alumnos que no han votado
+    @GetMapping("/estudiantesSinVoto")
+    public ArrayList<EstudianteObjeto> getEstudiantesVoto() {
+        return estudianteServicio.faltantesVotar();
+    }
 }

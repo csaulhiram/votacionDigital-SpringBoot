@@ -1,5 +1,6 @@
 package com.proyecto.votacion.Servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class EstudianteServicio {
     @Autowired
     EstudianteRepositorio estudianteRepositorio;
     PlanillaRepositorio planillaRepositorio;
-   // PlanillaServicio planillaServicio;
+    // PlanillaServicio planillaServicio;
 
     EstudianteObjeto estudianteObjeto = new EstudianteObjeto();
 
@@ -50,5 +51,8 @@ public class EstudianteServicio {
         estudianteRepositorio.actualizarEstatus(cta);
     }
 
-
+    @Transactional
+    public ArrayList<EstudianteObjeto> faltantesVotar() {
+        return estudianteRepositorio.faltantesVotar();
+    }
 }
