@@ -38,4 +38,5 @@ public class EstudianteObjeto {
     @OneToOne(mappedBy = "estudianteRepresentante")
     @JsonIgnore
     private PlanillaObjeto planillaObjeto;
+
 }

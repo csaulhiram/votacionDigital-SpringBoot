@@ -1,6 +1,10 @@
 package com.proyecto.votacion.Objetos;
 
 import jakarta.persistence.FetchType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,14 +23,19 @@ public class PlanillaObjeto {
     @Column(name = "id_planilla", nullable = false, unique = true)
     private String id_planilla;
 
-    @Column(name= "nombre_planilla", nullable = false, unique = true)
+    @Column(name = "nombre_planilla", nullable = false, unique = true)
     private String nombre_planilla;
 
     @Column(name = "votos", nullable = true, unique = false)
     private Integer votos;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    // TODO: Eliminar el cascadeType
+    
+    @OneToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    
     @JoinColumn(name = "estudiante_cta", referencedColumnName = "cta",
-     nullable = true)
-     private EstudianteObjeto estudianteRepresentante;
+    nullable = true)
+    private EstudianteObjeto estudianteRepresentante;
+    
+
 }
