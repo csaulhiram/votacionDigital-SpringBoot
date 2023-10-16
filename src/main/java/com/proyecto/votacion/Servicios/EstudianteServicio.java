@@ -2,6 +2,7 @@ package com.proyecto.votacion.Servicios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,6 @@ public class EstudianteServicio {
     @Autowired
     EstudianteRepositorio estudianteRepositorio;
     PlanillaRepositorio planillaRepositorio;
-    // PlanillaServicio planillaServicio;
 
     EstudianteObjeto estudianteObjeto = new EstudianteObjeto();
 
@@ -40,6 +40,10 @@ public class EstudianteServicio {
 
     public List<EstudianteObjeto> obtenerEstudiantes() {
         return estudianteRepositorio.findAll();
+    }
+
+    public Optional<EstudianteObjeto> obtenerEstudiante(String cta) {
+        return estudianteRepositorio.findById(cta);
     }
 
     public void eliminarEstudiante(String id) {

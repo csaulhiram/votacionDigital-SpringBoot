@@ -2,8 +2,6 @@ package com.proyecto.votacion.Objetos;
 
 import jakarta.persistence.FetchType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +27,7 @@ public class PlanillaObjeto {
     @Column(name = "votos", nullable = true, unique = false)
     private Integer votos;
 
-    // TODO: Eliminar el cascadeType
+
     
     @OneToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
     

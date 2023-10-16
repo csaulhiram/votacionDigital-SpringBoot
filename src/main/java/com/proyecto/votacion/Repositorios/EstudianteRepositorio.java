@@ -20,4 +20,5 @@ public interface EstudianteRepositorio extends JpaRepository<EstudianteObjeto, S
     @Procedure(procedureName = "getAlumnosVotos")
     ArrayList<EstudianteObjeto> faltantesVotar();
 
+
 }

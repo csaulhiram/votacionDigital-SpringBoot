@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,8 +37,9 @@ public class PlanillaControlador {
         planillaServicio.eliminarPlanilla(cta);
     }
 
-    @PutMapping("/votar")
-    public void votar(@RequestParam String id_planilla) {
-        planillaServicio.votar(id_planilla);
+    @PutMapping(path = "/votar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @CrossOrigin()
+    public void votar(String id_planilla) {
+        planillaServicio.votarPlanilla(id_planilla);
     }
 }

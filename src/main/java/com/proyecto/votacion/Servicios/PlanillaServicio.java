@@ -35,14 +35,17 @@ public class PlanillaServicio {
     }
 
     @Transactional
-    public void votar(String id_planilla) {
-
-        // validar si usuario votó
-
+    public void votarPlanilla(String id_planilla) {   
+        
         Optional<PlanillaObjeto> planilla;
         planilla = planillaRepositorio.findById(id_planilla);
+
         Integer votos = (Integer) planilla.get().getVotos();
+        if(votos == null) {
+            votos = 0;
+        } 
         votos++;
-        planillaRepositorio.votar(votos, id_planilla);
-     }
+
+        planillaRepositorio.votarPlanillaRepo(votos, id_planilla);
+    }
 }

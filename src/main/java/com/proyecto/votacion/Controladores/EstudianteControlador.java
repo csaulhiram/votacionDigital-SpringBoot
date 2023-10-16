@@ -2,6 +2,7 @@ package com.proyecto.votacion.Controladores;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -45,9 +46,17 @@ public class EstudianteControlador {
         estudianteServicio.eliminarEstudiante(id);
     }
 
-    @PutMapping("/estatus_voto")
-    public void estatusVoto(@RequestParam String cta) {
+    @PutMapping(path = "/estatus_voto", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @CrossOrigin
+    public void estatusVoto(String cta) {
         estudianteServicio.modificarEstatus_voto(cta);
+    }
+
+    @GetMapping(path = "/obtenerEstudiantePorCTA", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @CrossOrigin
+    public Optional<EstudianteObjeto> obtenerEstudiante(@RequestParam String cta) {
+        System.out.println("INFORMACION: " + cta);
+        return estudianteServicio.obtenerEstudiante(cta);
     }
 
     // Alumnos que no han votado
