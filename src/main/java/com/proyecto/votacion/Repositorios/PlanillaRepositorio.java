@@ -17,5 +17,10 @@ public interface PlanillaRepositorio extends JpaRepository<PlanillaObjeto, Strin
 
     @Procedure(procedureName = "verificarEstatusVoto")
     void obtenerEstatusVoto(@Param("noCta") String noCta);
-    
+
+    @Modifying
+    @Query(value = "DELETE FROM planilla p where p.estudiante_cta = ?", nativeQuery = true)
+    void eliminarPlanilla(String estudiante_cta);
+
+
 }

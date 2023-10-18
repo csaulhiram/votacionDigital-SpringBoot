@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.votacion.Objetos.PlanillaObjeto;
@@ -33,8 +32,9 @@ public class PlanillaControlador {
     }
 
     @DeleteMapping("/elimnarPlanilla")
-    public void elimnarPlanilla(@RequestParam String cta) {
-        planillaServicio.eliminarPlanilla(cta);
+    @CrossOrigin()
+    public void elimnarPlanilla(String estudiante_cta) {
+        planillaServicio.eliminarPlanilla(estudiante_cta);
     }
 
     @PutMapping(path = "/votar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)

@@ -40,9 +40,9 @@ public class EstudianteControlador {
         return estudianteServicio.obtenerEstudiantes();
     }
 
-    @DeleteMapping("/eliminarEstudiante")
+   @DeleteMapping("/eliminarEstudiante")
     @CrossOrigin
-    public void eliminarAdmin(@RequestParam String id) {
+    public void eliminarAdmin(String id) {
         estudianteServicio.eliminarEstudiante(id);
     }
 

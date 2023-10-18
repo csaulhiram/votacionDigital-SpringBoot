@@ -27,10 +27,7 @@ public class PlanillaObjeto {
     @Column(name = "votos", nullable = true, unique = false)
     private Integer votos;
 
-
-    
-    @OneToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    
+     @OneToOne(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinColumn(name = "estudiante_cta", referencedColumnName = "cta",
     nullable = true)
     private EstudianteObjeto estudianteRepresentante;

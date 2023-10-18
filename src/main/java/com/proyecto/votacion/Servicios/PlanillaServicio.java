@@ -30,13 +30,15 @@ public class PlanillaServicio {
         return planillaRepositorio.findAll();
     }
 
-    public void eliminarPlanilla(String id) {
-        planillaRepositorio.deleteById(id);
+    @Transactional
+    public void eliminarPlanilla(String estudiante_cta) {
+        planillaRepositorio.eliminarPlanilla(estudiante_cta);
     }
 
     @Transactional
     public void votarPlanilla(String id_planilla) {   
         
+
         Optional<PlanillaObjeto> planilla;
         planilla = planillaRepositorio.findById(id_planilla);
 
