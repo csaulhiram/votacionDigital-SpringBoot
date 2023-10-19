@@ -37,6 +37,5 @@ public class AdminControlador {
     @DeleteMapping("/eliminarAdmin")
     public void eliminarAdmin(String id) {
         adminServicio.eliminarAdmin(id);
-      //  infoUsuarioServicio.eliminarUsuario(id);
     }
 }
